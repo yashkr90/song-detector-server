@@ -24,8 +24,8 @@ const __dirname = dirname(__filename);
 console.log(__dirname);
 app.use(cors());
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'jade');
 
 
 // app.use(logger('dev'));
