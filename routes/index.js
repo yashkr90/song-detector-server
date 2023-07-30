@@ -23,7 +23,7 @@ console.log("_dirname", __dirname);
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '/tmp/uploads')
+    cb(null, './tmp/uploads')
   },
   filename: function (req, file, cb) {
     console.log(file.mimetype);
