@@ -2,11 +2,13 @@ import express from 'express';
 var router = express.Router();
 import multer from "multer";
 import axios from "axios";
-import fs from "@cyclic.sh/s3fs";
+
 import { fileURLToPath } from 'url';
 import path,{ dirname } from 'path';
 import  request  from 'request';
 import { promisify } from 'util';
+// import fs from "@cyclic.sh/s3fs";
+import fs from "fs";
 
 
 const unlinkAsync = promisify(fs.unlink)
@@ -23,7 +25,7 @@ console.log("_dirname", __dirname);
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, './tmp/uploads')
+    cb(null, './public/uploads')
   },
   filename: function (req, file, cb) {
     console.log(file.mimetype);
@@ -57,8 +59,8 @@ router.post("/uploads", upload.single('upl') , async (req,res)=>{
 
   // const songname = __dirname + '/public/uploads/' + req.file.filename;
 
-// const songname = path.join(__dirname,'../','public','uploads',req.file.filename);
-const songname = path.join(__dirname,'../','tmp','uploads',req.file.filename);
+const songname = path.join(__dirname,'../','public','uploads',req.file.filename);
+// const songname = path.join(__dirname,'../','tmp','uploads',req.file.filename);
 console.log("songname", songname);
 
 console.log(typeof songname);
