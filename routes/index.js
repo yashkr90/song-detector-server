@@ -2,7 +2,7 @@ import express from 'express';
 var router = express.Router();
 import multer from "multer";
 import axios from "axios";
-import fs from "fs";
+import fs from "@cyclic.sh/s3fs";
 import { fileURLToPath } from 'url';
 import path,{ dirname } from 'path';
 import  request  from 'request';
