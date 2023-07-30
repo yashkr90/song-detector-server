@@ -10,7 +10,7 @@ import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import fileupload from 'express-fileupload';
+
 
 const port = 3000;
 
@@ -31,11 +31,9 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(fileupload({
-  useTempFiles: true,
-  tempFileDir: "/tmp",
-}))
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'tmp')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
